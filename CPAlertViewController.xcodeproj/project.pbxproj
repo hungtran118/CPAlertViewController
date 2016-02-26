@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		950011241C1907E800E0126C /* CPCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950011231C1907E800E0126C /* CPCollectionViewCell.swift */; };
+		950404B91C1990AC00069081 /* CPAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950404B61C1990AC00069081 /* CPAlertViewController.swift */; };
+		950404BB1C1990AC00069081 /* HelpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950404B81C1990AC00069081 /* HelpClass.swift */; };
 		95FA1DE21C1669D600FFCD05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA1DE11C1669D600FFCD05 /* AppDelegate.swift */; };
 		95FA1DE41C1669D600FFCD05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA1DE31C1669D600FFCD05 /* ViewController.swift */; };
 		95FA1DE71C1669D600FFCD05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FA1DE51C1669D600FFCD05 /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		950011231C1907E800E0126C /* CPCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPCollectionViewCell.swift; sourceTree = "<group>"; };
+		950404B61C1990AC00069081 /* CPAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPAlertViewController.swift; sourceTree = "<group>"; };
+		950404B81C1990AC00069081 /* HelpClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpClass.swift; sourceTree = "<group>"; };
 		95FA1DDE1C1669D500FFCD05 /* CPAlertViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPAlertViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FA1DE11C1669D600FFCD05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95FA1DE31C1669D600FFCD05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		950404B51C1990AC00069081 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				950404B61C1990AC00069081 /* CPAlertViewController.swift */,
+				950404B81C1990AC00069081 /* HelpClass.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		95FA1DD51C1669D400FFCD05 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +69,8 @@
 		95FA1DE01C1669D500FFCD05 /* CPAlertViewController */ = {
 			isa = PBXGroup;
 			children = (
+				950404B51C1990AC00069081 /* Classes */,
+				950011231C1907E800E0126C /* CPCollectionViewCell.swift */,
 				95FA1DE11C1669D600FFCD05 /* AppDelegate.swift */,
 				95FA1DE31C1669D600FFCD05 /* ViewController.swift */,
 				95FA1DE51C1669D600FFCD05 /* Main.storyboard */,
@@ -135,8 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950404BB1C1990AC00069081 /* HelpClass.swift in Sources */,
+				950404B91C1990AC00069081 /* CPAlertViewController.swift in Sources */,
 				95FA1DE41C1669D600FFCD05 /* ViewController.swift in Sources */,
 				95FA1DE21C1669D600FFCD05 /* AppDelegate.swift in Sources */,
+				950011241C1907E800E0126C /* CPCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +268,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CPAlertViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zte.CPAlertViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -259,6 +280,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CPAlertViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zte.CPAlertViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -284,6 +306,7 @@
 				95FA1DF21C1669D700FFCD05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
