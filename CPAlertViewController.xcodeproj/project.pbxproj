@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35D939B41C82F567000AD90D /* CPAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D939B21C82F567000AD90D /* CPAlertViewController.swift */; };
+		35D939B51C82F567000AD90D /* HelpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D939B31C82F567000AD90D /* HelpClass.swift */; };
 		950011241C1907E800E0126C /* CPCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950011231C1907E800E0126C /* CPCollectionViewCell.swift */; };
-		950404B91C1990AC00069081 /* CPAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950404B61C1990AC00069081 /* CPAlertViewController.swift */; };
-		950404BB1C1990AC00069081 /* HelpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950404B81C1990AC00069081 /* HelpClass.swift */; };
 		95FA1DE21C1669D600FFCD05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA1DE11C1669D600FFCD05 /* AppDelegate.swift */; };
 		95FA1DE41C1669D600FFCD05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA1DE31C1669D600FFCD05 /* ViewController.swift */; };
 		95FA1DE71C1669D600FFCD05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FA1DE51C1669D600FFCD05 /* Main.storyboard */; };
@@ -18,9 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35D939B21C82F567000AD90D /* CPAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPAlertViewController.swift; sourceTree = "<group>"; };
+		35D939B31C82F567000AD90D /* HelpClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpClass.swift; sourceTree = "<group>"; };
 		950011231C1907E800E0126C /* CPCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPCollectionViewCell.swift; sourceTree = "<group>"; };
-		950404B61C1990AC00069081 /* CPAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPAlertViewController.swift; sourceTree = "<group>"; };
-		950404B81C1990AC00069081 /* HelpClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpClass.swift; sourceTree = "<group>"; };
 		95FA1DDE1C1669D500FFCD05 /* CPAlertViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPAlertViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FA1DE11C1669D600FFCD05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95FA1DE31C1669D600FFCD05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,11 +41,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		950404B51C1990AC00069081 /* Classes */ = {
+		35D939B11C82F567000AD90D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				950404B61C1990AC00069081 /* CPAlertViewController.swift */,
-				950404B81C1990AC00069081 /* HelpClass.swift */,
+				35D939B21C82F567000AD90D /* CPAlertViewController.swift */,
+				35D939B31C82F567000AD90D /* HelpClass.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -69,7 +69,7 @@
 		95FA1DE01C1669D500FFCD05 /* CPAlertViewController */ = {
 			isa = PBXGroup;
 			children = (
-				950404B51C1990AC00069081 /* Classes */,
+				35D939B11C82F567000AD90D /* Classes */,
 				950011231C1907E800E0126C /* CPCollectionViewCell.swift */,
 				95FA1DE11C1669D600FFCD05 /* AppDelegate.swift */,
 				95FA1DE31C1669D600FFCD05 /* ViewController.swift */,
@@ -152,8 +152,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				950404BB1C1990AC00069081 /* HelpClass.swift in Sources */,
-				950404B91C1990AC00069081 /* CPAlertViewController.swift in Sources */,
+				35D939B41C82F567000AD90D /* CPAlertViewController.swift in Sources */,
+				35D939B51C82F567000AD90D /* HelpClass.swift in Sources */,
 				95FA1DE41C1669D600FFCD05 /* ViewController.swift in Sources */,
 				95FA1DE21C1669D600FFCD05 /* AppDelegate.swift in Sources */,
 				950011241C1907E800E0126C /* CPCollectionViewCell.swift in Sources */,
