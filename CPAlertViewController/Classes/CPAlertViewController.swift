@@ -18,13 +18,28 @@ public typealias UserAction = ((buttonIndex: Int) -> Void)
 public class CPAlertViewController: UIViewController {
     
     //MARK: - Custom Properties
+    /// The font size of tittle
     public static var titleFontSize: CGFloat = 22.0
+    
+    /// The font size of message
     public static var messageFontSize: CGFloat = 16.0
+    
+    /// The font size of title of button
     public static var buttonFontSize: CGFloat = 16.0
+    
+    /// The text color of tittle
     public static var titleColor = UIColor.colorFromRGB(0x333333)
+    
+    /// The text color of message
     public static var messageColor = UIColor.colorFromRGB(0x555555)
+    
+    /// The text color of title of button
     public static var buttonTitleColor = UIColor.whiteColor()
-    public static var buttonBGNomalColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+    
+    /// The normal background color of button
+    public static var buttonBGNormalColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+    
+    /// The highlighted background color of button
     public static var buttonBGHighlightedColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 0.7)
     
     //MARK: - Const
@@ -210,7 +225,7 @@ public class CPAlertViewController: UIViewController {
         button.setTitle(title, forState: .Normal)
         button.titleLabel?.font = UIFont.systemFontOfSize(CPAlertViewController.buttonFontSize)
         button.setTitleColor(CPAlertViewController.buttonTitleColor, forState: .Normal)
-        button.setBackgroundImage(CPAlertViewController.buttonBGNomalColor.image(), forState: .Normal)
+        button.setBackgroundImage(CPAlertViewController.buttonBGNormalColor.image(), forState: .Normal)
         button.setBackgroundImage(CPAlertViewController.buttonBGHighlightedColor.image(), forState: .Highlighted)
         button.backgroundColor = UIColor.clearColor()
         button.addTarget(self, action: "pressed:", forControlEvents: UIControlEvents.TouchUpInside)
