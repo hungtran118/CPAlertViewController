@@ -6,7 +6,7 @@ Inspired by the excellent [SweetAlert-iOS](https://github.com/codestergit/SweetA
 
 ## Screenshot
 
-![](success.png) ![](error.png) ![](warning.png)![](info.png) ![](custom.png)
+![](Screenshot.png)
 
 ## Installation
 
@@ -70,7 +70,7 @@ The designated method
 public func show(title title: String?, message: String?, style: CPAlertStyle = .None, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil)
 ```
 
-CPAlertViewController also provide four convenience methods
+CPAlertViewController also provides four convenience methods
 
 Show success
 

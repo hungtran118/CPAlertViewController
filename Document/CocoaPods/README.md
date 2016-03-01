@@ -34,7 +34,7 @@
 
     pod 'CPAlertViewController', :path => '~/Document/CPAlertViewController'(本地目录)
     or
-    pod 'CPAlertViewController', :git => 'https://.../CPAlertViewController.git'(github)
+    pod 'CPAlertViewController', :git => 'https://github.com/cp3hnu/CPAlertViewController.git'(github)
     ```
 
 3.  Install
@@ -49,11 +49,8 @@
     import CPAlertViewController
     ```
 
-    Storyboard/Xib 
+    Storyboard/Xib: Go to Utilities->Identity inspector->Module
 
-    Go to Utilities->Identity inspector->Module
-
-    storyboard/xib文件选择Utilities->Identity inspector->Module
 
 ###Release
 
@@ -75,15 +72,15 @@
 3.  Register
 
     ```swift
-    $ pod trunk register name@gmail.com 'name' --description='description'
+    $ pod trunk register cp3hnu@gmail.com 'WeiZhao' --description='macbook pro'
     ```
 
     Verify the session by clicking the link in the verification email that has been sent to name@gmail.com
 
     ```swift
     $ pod trunk me
-      - Name:     ------
-      - Email:    ------
+      - Name:     WeiZhao
+      - Email:    cp3hnu@gmail.com
       - Since:    October 16th, 2015 01:37
       - Pods:
         - CPLoadingView
@@ -121,8 +118,6 @@ pod 'CPAlertViewController'
 
 *   [CocoaPod](https://cocoapods.org/)
 *   [Creating Your First CocoaPod](http://code.tutsplus.com/tutorials/creating-your-first-cocoapod--cms-24332)
-
-
 
 
 
