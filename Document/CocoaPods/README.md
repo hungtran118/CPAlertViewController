@@ -51,14 +51,13 @@
 
     Storyboard/Xib: Go to Utilities->Identity inspector->Module
 
-
 ###Release
 
 1.  Tagging
 
     ```swift
     $ git add -A && git commit -m "Release 1.0.0"
-    $ git tag '1.0.0'
+    $ git tag 1.0.0
     $ git push --tags
     $ git tag
     ```
@@ -118,8 +117,6 @@ pod 'CPAlertViewController'
 
 *   [CocoaPod](https://cocoapods.org/)
 *   [Creating Your First CocoaPod](http://code.tutsplus.com/tutorials/creating-your-first-cocoapod--cms-24332)
-
-
 
 
 

@@ -18,13 +18,28 @@ public typealias UserAction = ((buttonIndex: Int) -> Void)
 public class CPAlertViewController: UIViewController {
     
     //MARK: - Custom Properties
+    /// The font size of tittle
     public static var titleFontSize: CGFloat = 22.0
+    
+    /// The font size of message
     public static var messageFontSize: CGFloat = 16.0
+    
+    /// The font size of title of button
     public static var buttonFontSize: CGFloat = 16.0
+    
+    /// The text color of tittle
     public static var titleColor = UIColor.colorFromRGB(0x333333)
+    
+    /// The text color of message
     public static var messageColor = UIColor.colorFromRGB(0x555555)
+    
+    /// The text color of title of button
     public static var buttonTitleColor = UIColor.whiteColor()
-    public static var buttonBGNomalColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+    
+    /// The normal background color of button
+    public static var buttonBGNormalColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+    
+    /// The highlighted background color of button
     public static var buttonBGHighlightedColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 0.7)
     
     //MARK: - Const
@@ -210,7 +225,7 @@ public class CPAlertViewController: UIViewController {
         button.setTitle(title, forState: .Normal)
         button.titleLabel?.font = UIFont.systemFontOfSize(CPAlertViewController.buttonFontSize)
         button.setTitleColor(CPAlertViewController.buttonTitleColor, forState: .Normal)
-        button.setBackgroundImage(CPAlertViewController.buttonBGNomalColor.image(), forState: .Normal)
+        button.setBackgroundImage(CPAlertViewController.buttonBGNormalColor.image(), forState: .Normal)
         button.setBackgroundImage(CPAlertViewController.buttonBGHighlightedColor.image(), forState: .Highlighted)
         button.backgroundColor = UIColor.clearColor()
         button.addTarget(self, action: "pressed:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -249,27 +264,17 @@ public class CPAlertViewController: UIViewController {
     
     private func animateAlert() {
         
-        view.alpha = 0;
+        view.alpha = 0
         UIView.animateWithDuration(0.1, animations: { () -> Void in
-            self.view.alpha = 1.0;
+            self.view.alpha = 1.0
         })
         
-        let previousTransform = self.contentView.transform
-        self.contentView.layer.transform = CATransform3DMakeScale(0.9, 0.9, 0.0);
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
-            self.contentView.layer.transform = CATransform3DMakeScale(1.1, 1.1, 0.0);
-            }) { (Bool) -> Void in
-                UIView.animateWithDuration(0.1, animations: { () -> Void in
-                    self.contentView.layer.transform = CATransform3DMakeScale(0.9, 0.9, 0.0);
-                    }) { (Bool) -> Void in
-                        UIView.animateWithDuration(0.1, animations: { () -> Void in
-                            self.contentView.layer.transform = CATransform3DMakeScale(1.0, 1.0, 0.0);
-                            }) { (Bool) -> Void in
-                                
-                                self.contentView.transform = previousTransform
-                        }
-                }
-        }
+        let animation = CAKeyframeAnimation(keyPath: "transform")
+        animation.values = [NSValue(CATransform3D: CATransform3DMakeScale(0.9, 0.9, 0.0)), NSValue(CATransform3D: CATransform3DMakeScale(1.1, 1.1, 0.0)), NSValue(CATransform3D: CATransform3DMakeScale(0.9, 0.9, 0.0)), NSValue(CATransform3D: CATransform3DMakeScale(1.0, 1.0, 0.0))]
+        animation.keyTimes = [0, 2.0/4.0, 3.0/4.0, 1]
+        animation.additive = true
+        animation.duration = 0.4
+        self.contentView.layer.addAnimation(animation, forKey: "animation")
     }
     
     //MARK: - API
@@ -332,11 +337,11 @@ private class CPAlertViewStyleKit : NSObject {
         line2Path.moveToPoint(CGPointMake(44.86, 21.68))
         line2Path.addLineToPoint(CGPointMake(26.08, 39.51))
         line2Path.addLineToPoint(CGPointMake(17.28, 30.55))
-        line2Path.miterLimit = 4;
+        line2Path.miterLimit = 4
         
-        line2Path.lineCapStyle = CGLineCap.Round;
+        line2Path.lineCapStyle = CGLineCap.Round
         
-        line2Path.usesEvenOddFillRule = true;
+        line2Path.usesEvenOddFillRule = true
         
         color1.setStroke()
         line2Path.lineWidth = 4
@@ -355,11 +360,11 @@ private class CPAlertViewStyleKit : NSObject {
         let linePath = UIBezierPath()
         linePath.moveToPoint(CGPointMake(18.45, 18.75))
         linePath.addLineToPoint(CGPointMake(41.85, 42.15))
-        linePath.miterLimit = 4;
+        linePath.miterLimit = 4
         
-        linePath.lineCapStyle = CGLineCap.Round;
+        linePath.lineCapStyle = CGLineCap.Round
         
-        linePath.usesEvenOddFillRule = true;
+        linePath.usesEvenOddFillRule = true
         
         color1.setStroke()
         linePath.lineWidth = 3
@@ -368,11 +373,11 @@ private class CPAlertViewStyleKit : NSObject {
         let line2Path = UIBezierPath()
         line2Path.moveToPoint(CGPointMake(41.85, 18.45))
         line2Path.addLineToPoint(CGPointMake(18.45, 42.15))
-        line2Path.miterLimit = 4;
+        line2Path.miterLimit = 4
         
-        line2Path.lineCapStyle = CGLineCap.Round;
+        line2Path.lineCapStyle = CGLineCap.Round
         
-        line2Path.usesEvenOddFillRule = true;
+        line2Path.usesEvenOddFillRule = true
         
         color1.setStroke()
         line2Path.lineWidth = 3
@@ -391,11 +396,11 @@ private class CPAlertViewStyleKit : NSObject {
         let linePath = UIBezierPath()
         linePath.moveToPoint(CGPointMake(30, 33))
         linePath.addLineToPoint(CGPointMake(30, 13))
-        linePath.miterLimit = 4;
+        linePath.miterLimit = 4
         
-        linePath.lineCapStyle = CGLineCap.Round;
+        linePath.lineCapStyle = CGLineCap.Round
         
-        linePath.usesEvenOddFillRule = true;
+        linePath.usesEvenOddFillRule = true
         
         color1.setStroke()
         linePath.lineWidth = 4
@@ -417,11 +422,11 @@ private class CPAlertViewStyleKit : NSObject {
         let linePath = UIBezierPath()
         linePath.moveToPoint(CGPointMake(30, 27))
         linePath.addLineToPoint(CGPointMake(30, 47))
-        linePath.miterLimit = 4;
+        linePath.miterLimit = 4
         
-        linePath.lineCapStyle = CGLineCap.Round;
+        linePath.lineCapStyle = CGLineCap.Round
         
-        linePath.usesEvenOddFillRule = true;
+        linePath.usesEvenOddFillRule = true
         
         color1.setStroke()
         linePath.lineWidth = 4
