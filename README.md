@@ -113,9 +113,8 @@ public func showInfo(title title: String?, message: String?, buttonTitle: String
 - [ ] Carthage
 - [ ] Swift Package Manager
 
-      ​
 
-      ​
+
 
 
 
