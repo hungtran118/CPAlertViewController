@@ -11,6 +11,21 @@ import UIKit
 public enum CPAlertStyle {
     case Success, Error, Warning, Info, None
     case CustomImage(imageName: String)
+    
+    var backgroundColorInt: UInt {
+        switch self {
+        case Success:
+            return 0x10A110
+        case Error:
+            return 0xDC2121
+        case Warning:
+            return 0xF8E71C
+        case Info:
+            return 0x4A90E2
+        default:
+            return 0xFFFFFF
+        }
+    }
 }
 
 public typealias UserAction = ((buttonIndex: Int) -> Void)
@@ -52,12 +67,12 @@ public class CPAlertViewController: UIViewController {
     private let kButtonHeight: CGFloat = 35.0
     private let kTitleLines: Int = 3
     private let kImageViewWidth: CGFloat = 30.0
-    private let kImageViewHeight: CGFloat = 30.0
     private let kButtonBaseTag: Int = 100
     private let kButtonHoriSpace: CGFloat = 20.0
     private var imageViewSpace: CGFloat = 0.0
     private var titleLabelSpace: CGFloat = 0.0
     private var messageTextViewSpace: CGFloat = 0.0
+    
     
     //MARK: - View
     private var strongSelf: CPAlertViewController?
@@ -154,7 +169,7 @@ public class CPAlertViewController: UIViewController {
         if let image = imageOption {
             self.imageView.image = image
             imageWidth = kImageViewWidth
-            imageHeight = kImageViewHeight
+            imageHeight = kImageViewWidth
             imageViewSpace = kVerticalGap
         }
         
@@ -164,6 +179,13 @@ public class CPAlertViewController: UIViewController {
         //Width and height constraints
         imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .Width, multiplier: 1.0, constant: imageWidth))
         imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: imageHeight))
+        
+        imageView.backgroundColor = UIColor.colorFromRGB(style.backgroundColorInt)
+        if case .CustomImage(_) = style {
+            imageView.layer.cornerRadius = 0
+        } else {
+            imageView.layer.cornerRadius = kImageViewWidth/2
+        }
     }
     
     private func setupTitleLabel(title: String?) {
@@ -326,12 +348,7 @@ private class CPAlertViewStyleKit : NSObject {
     //MARK: - Drawing Methods
     class func drawCheckmark() {
         
-        let ovalColor = UIColor(red: 0.096, green: 0.580, blue: 0.057, alpha: 1.000)
         let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-        
-        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(0, 0, 120, 120))
-        ovalColor.setFill()
-        ovalPath.fill()
         
         let linePath = UIBezierPath()
         linePath.moveToPoint(CGPointMake(89.43, 43.76))
@@ -346,12 +363,7 @@ private class CPAlertViewStyleKit : NSObject {
     
     class func drawCross() {
     
-        let ovalColor = UIColor(red: 0.824, green: 0.017, blue: 0.102, alpha: 1.000)
         let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-        
-        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(0, 0, 120, 120))
-        ovalColor.setFill()
-        ovalPath.fill()
         
         let linePath = UIBezierPath()
         linePath.moveToPoint(CGPointMake(36.9, 37.5))
@@ -374,12 +386,7 @@ private class CPAlertViewStyleKit : NSObject {
     
     class func drawWarning() {
         
-        let ovalColor = UIColor(red: 0.996, green: 0.788, blue: 0.068, alpha: 1.000)
         let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-        
-        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(0, 0, 120, 120))
-        ovalColor.setFill()
-        ovalPath.fill()
         
         let linePath = UIBezierPath()
         linePath.moveToPoint(CGPointMake(60, 66))
@@ -397,12 +404,7 @@ private class CPAlertViewStyleKit : NSObject {
     
     class func drawInfo() {
         
-        let ovalColor = UIColor(red: 0.230, green: 0.480, blue: 0.858, alpha: 1.000)
         let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-        
-        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(0, 0, 120, 120))
-        ovalColor.setFill()
-        ovalPath.fill()
         
         let linePath = UIBezierPath()
         linePath.moveToPoint(CGPointMake(60, 54))
