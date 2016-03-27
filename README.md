@@ -1,6 +1,6 @@
 # CPAlertViewController
 
-CPAlertViewController is custom Alert View Controller written in Swift.
+CPAlertViewController is custom **Alert View Controller** written in Swift.
 
 Inspired by the excellent [SweetAlert-iOS](https://github.com/codestergit/SweetAlert-iOS) and [SCLAlertView-Swift](https://github.com/vikmeup/SCLAlertView-Swift). The difference is that CPAlertViewController uses auto layout.
 
@@ -102,7 +102,6 @@ public func showInfo(title title: String?, message: String?, buttonTitle: String
 
 * Swift 2.2
 * Xcode 7.3
-
 
 
 
