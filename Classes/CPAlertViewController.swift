@@ -228,7 +228,7 @@ public class CPAlertViewController: UIViewController {
         button.setBackgroundImage(CPAlertViewController.buttonBGNormalColor.image(), forState: .Normal)
         button.setBackgroundImage(CPAlertViewController.buttonBGHighlightedColor.image(), forState: .Highlighted)
         button.backgroundColor = UIColor.clearColor()
-        button.addTarget(self, action: "pressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(CPAlertViewController.pressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         //Height constraints
         button.addConstraint(NSLayoutConstraint(item: button, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: kButtonHeight))
