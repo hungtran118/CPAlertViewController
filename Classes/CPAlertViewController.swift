@@ -326,115 +326,96 @@ private class CPAlertViewStyleKit : NSObject {
     //MARK: - Drawing Methods
     class func drawCheckmark() {
         
-        let color0 = UIColor(red: 0.096, green: 0.580, blue: 0.057, alpha: 1.000)
-        let color1 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+        let ovalColor = UIColor(red: 0.096, green: 0.580, blue: 0.057, alpha: 1.000)
+        let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         
-        let oval2Path = UIBezierPath(ovalInRect: CGRectMake(0, 0, 60, 60))
-        color0.setFill()
-        oval2Path.fill()
+        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(0, 0, 120, 120))
+        ovalColor.setFill()
+        ovalPath.fill()
         
-        let line2Path = UIBezierPath()
-        line2Path.moveToPoint(CGPointMake(44.86, 21.68))
-        line2Path.addLineToPoint(CGPointMake(26.08, 39.51))
-        line2Path.addLineToPoint(CGPointMake(17.28, 30.55))
-        line2Path.miterLimit = 4
-        
-        line2Path.lineCapStyle = CGLineCap.Round
-        
-        line2Path.usesEvenOddFillRule = true
-        
-        color1.setStroke()
-        line2Path.lineWidth = 4
-        line2Path.stroke()
+        let linePath = UIBezierPath()
+        linePath.moveToPoint(CGPointMake(89.43, 43.76))
+        linePath.addLineToPoint(CGPointMake(52.23, 79.68))
+        linePath.addLineToPoint(CGPointMake(30.52, 57.42))
+        linePath.lineCapStyle = CGLineCap.Square
+        linePath.usesEvenOddFillRule = true;
+        linePath.lineWidth = 6
+        lineColor.setStroke()
+        linePath.stroke()
     }
     
     class func drawCross() {
     
-        let color1 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-        let color = UIColor(red: 0.824, green: 0.017, blue: 0.102, alpha: 1.000)
+        let ovalColor = UIColor(red: 0.824, green: 0.017, blue: 0.102, alpha: 1.000)
+        let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         
-        let oval1Path = UIBezierPath(ovalInRect: CGRectMake(0, 0, 60, 60))
-        color.setFill()
-        oval1Path.fill()
+        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(0, 0, 120, 120))
+        ovalColor.setFill()
+        ovalPath.fill()
         
         let linePath = UIBezierPath()
-        linePath.moveToPoint(CGPointMake(18.45, 18.75))
-        linePath.addLineToPoint(CGPointMake(41.85, 42.15))
-        linePath.miterLimit = 4
-        
+        linePath.moveToPoint(CGPointMake(36.9, 37.5))
+        linePath.addLineToPoint(CGPointMake(83.7, 84.3))
         linePath.lineCapStyle = CGLineCap.Round
-        
         linePath.usesEvenOddFillRule = true
-        
-        color1.setStroke()
-        linePath.lineWidth = 3
+        linePath.lineWidth = 6
+        lineColor.setStroke()
         linePath.stroke()
         
         let line2Path = UIBezierPath()
-        line2Path.moveToPoint(CGPointMake(41.85, 18.45))
-        line2Path.addLineToPoint(CGPointMake(18.45, 42.15))
-        line2Path.miterLimit = 4
-        
+        line2Path.moveToPoint(CGPointMake(83.7, 36.9))
+        line2Path.addLineToPoint(CGPointMake(36.9, 84.3))
         line2Path.lineCapStyle = CGLineCap.Round
-        
         line2Path.usesEvenOddFillRule = true
-        
-        color1.setStroke()
-        line2Path.lineWidth = 3
+        line2Path.lineWidth = 6
+        lineColor.setStroke()
         line2Path.stroke()
-
     }
     
     class func drawWarning() {
-        let color1 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-        let color3 = UIColor(red: 0.996, green: 0.788, blue: 0.068, alpha: 1.000)
         
-        let oval1Path = UIBezierPath(ovalInRect: CGRectMake(0, 0, 60, 60))
-        color3.setFill()
-        oval1Path.fill()
+        let ovalColor = UIColor(red: 0.996, green: 0.788, blue: 0.068, alpha: 1.000)
+        let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+        
+        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(0, 0, 120, 120))
+        ovalColor.setFill()
+        ovalPath.fill()
         
         let linePath = UIBezierPath()
-        linePath.moveToPoint(CGPointMake(30, 33))
-        linePath.addLineToPoint(CGPointMake(30, 13))
-        linePath.miterLimit = 4
-        
+        linePath.moveToPoint(CGPointMake(60, 66))
+        linePath.addLineToPoint(CGPointMake(60, 26))
         linePath.lineCapStyle = CGLineCap.Round
-        
         linePath.usesEvenOddFillRule = true
-        
-        color1.setStroke()
-        linePath.lineWidth = 4
+        linePath.lineWidth = 8
+        lineColor.setStroke()
         linePath.stroke()
         
-        let oval3Path = UIBezierPath(ovalInRect: CGRectMake(27, 44, 6, 6))
-        color1.setFill()
-        oval3Path.fill()
+        let oval2Path = UIBezierPath(ovalInRect: CGRectMake(54, 88, 12, 12))
+        lineColor.setFill()
+        oval2Path.fill()
     }
     
     class func drawInfo() {
-        let color1 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-        let color4 = UIColor(red: 0.230, green: 0.480, blue: 0.858, alpha: 1.000)
         
-        let oval1Path = UIBezierPath(ovalInRect: CGRectMake(0, 0, 60, 60))
-        color4.setFill()
-        oval1Path.fill()
+        let ovalColor = UIColor(red: 0.230, green: 0.480, blue: 0.858, alpha: 1.000)
+        let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+        
+        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(0, 0, 120, 120))
+        ovalColor.setFill()
+        ovalPath.fill()
         
         let linePath = UIBezierPath()
-        linePath.moveToPoint(CGPointMake(30, 27))
-        linePath.addLineToPoint(CGPointMake(30, 47))
-        linePath.miterLimit = 4
-        
+        linePath.moveToPoint(CGPointMake(60, 54))
+        linePath.addLineToPoint(CGPointMake(60, 94))
         linePath.lineCapStyle = CGLineCap.Round
-        
         linePath.usesEvenOddFillRule = true
-        
-        color1.setStroke()
-        linePath.lineWidth = 4
+        linePath.lineWidth = 8
+        lineColor.setStroke()
         linePath.stroke()
        
-        let oval3Path = UIBezierPath(ovalInRect: CGRectMake(27, 10, 6, 6))
-        color1.setFill()
-        oval3Path.fill()
+        let oval2Path = UIBezierPath(ovalInRect: CGRectMake(54, 20, 12, 12))
+        lineColor.setFill()
+        oval2Path.fill()
     }
     
     //MARK: - images
@@ -442,7 +423,7 @@ private class CPAlertViewStyleKit : NSObject {
         if (Cache.imageOfCheckmark != nil) {
             return Cache.imageOfCheckmark!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 60), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(120, 120), false, 0)
         CPAlertViewStyleKit.drawCheckmark()
         Cache.imageOfCheckmark = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -453,7 +434,7 @@ private class CPAlertViewStyleKit : NSObject {
         if (Cache.imageOfCross != nil) {
             return Cache.imageOfCross!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 60), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(120, 120), false, 0)
         CPAlertViewStyleKit.drawCross()
         Cache.imageOfCross = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -464,7 +445,7 @@ private class CPAlertViewStyleKit : NSObject {
         if (Cache.imageOfWarning != nil) {
             return Cache.imageOfWarning!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 60), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(120, 120), false, 0)
         CPAlertViewStyleKit.drawWarning()
         Cache.imageOfWarning = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -475,7 +456,7 @@ private class CPAlertViewStyleKit : NSObject {
         if (Cache.imageOfInfo != nil) {
             return Cache.imageOfInfo!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 60), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(120, 120), false, 0)
         CPAlertViewStyleKit.drawInfo()
         Cache.imageOfInfo = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

@@ -15,7 +15,7 @@ class ViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return 13
     }
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
@@ -69,13 +69,6 @@ class ViewController: UICollectionViewController {
         case 12:
             title = "Success"
             detail = "No message"
-        //Test
-//        case 13:
-//            title = "Success"
-//            detail = "No title and message"
-//        case 14:
-//            title = "None"
-//            detail = "No image, title and message"
         default:
             break
         }
@@ -183,19 +176,6 @@ class ViewController: UICollectionViewController {
         
         CPAlertViewController().showSuccess(title: "Title", message: nil)
     }
-    
-    //test
-//    func show14() {
-//        
-//        CPAlertViewController().showSuccess(title: nil, message: nil)
-//    }
-//    
-//    func show15() {
-//        
-//        CPAlertViewController().show(title: nil, message: nil, buttonTitle: "确定", otherButtonTitle: nil, action:{(buttonIndex: Int) -> Void in
-//            print("Clicked at index = ", buttonIndex)
-//        })
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
