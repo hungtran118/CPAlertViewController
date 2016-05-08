@@ -1,4 +1,4 @@
-#[CocoaPods](https://cocoapods.org/)
+#CocoaPods
 
 ##Making a CocoaPod
 
@@ -7,10 +7,10 @@
 1.  创建Specs或者拷贝已有的Specs文件，修改名称
 
     ```swift
-     $ pod spec create CPAlertViewController
+      $ pod spec create CPAlertViewController
     ```
 
-     生成CPAlertViewController.podspec
+      生成CPAlertViewController.podspec
 
 2.  编辑CPAlertViewController.podspec
 
@@ -56,10 +56,10 @@
 1.  Tagging
 
     ```swift
-     $ git add -A && git commit -m "Release 1.0.0"
-     $ git tag 1.0.0
-     $ git push --tags
-     $ git tag
+      $ git add -A && git commit -m "Release 1.0.0"
+      $ git tag 1.0.0
+      $ git push --tags
+      $ git tag
     ```
 
 2.  Validation

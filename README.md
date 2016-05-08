@@ -28,7 +28,7 @@ Then import library module like so:
 import CPAlertViewController
 ```
 
-### [Carthage](https://github.com/Carthage/Carthage#Supporting Carthage for your framework)
+### [Carthage](https://github.com/Carthage/Carthage#Supporting-Carthage-for-your-framework)
 
 ```swift
 github "cp3hnu/CPAlertViewController"
