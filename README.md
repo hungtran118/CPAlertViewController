@@ -126,7 +126,7 @@ public func showInfo(title title: String?, message: String?, buttonTitle: String
 ## TO DO
 
 - [x] [Cocoapods](Documentation/CocoaPods.md)
-- [x] [Carthage]((https://github.com/Carthage/Carthage#supporting-carthage-for-your-framework))
+- [x] [Carthage](https://github.com/Carthage/Carthage#supporting-carthage-for-your-framework)
 - [ ] Swift Package Manager
 
 
