@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "CPAlertViewController"
-  s.version          = "1.1.1"
+  s.version          = "2.0.0"
   s.summary          = "CPAlertViewController is custom animated Alert View Controller. Written in Swift."
   s.homepage         = "https://github.com/cp3hnu/CPAlertViewController"
   s.license          = 'MIT'

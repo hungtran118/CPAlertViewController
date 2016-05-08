@@ -14,7 +14,7 @@ Inspired by the excellent [SweetAlert-iOS](https://github.com/codestergit/SweetA
 
 The simplest way to install this library is to copy `Classes/*.swift` to your project.
 
-### [CocoaPods](Documentation/CocoaPods.md)
+### [CocoaPods](https://cocoapods.org/)
 
 You can also install this library using CocoaPods. Just add this line to your Podfile:
 
@@ -28,7 +28,7 @@ Then import library module like so:
 import CPAlertViewController
 ```
 
-### [Carthage](https://github.com/Carthage/Carthage#Supporting-Carthage-for-your-framework)
+### [Carthage](https://github.com/Carthage/Carthage)
 
 ```swift
 github "cp3hnu/CPAlertViewController"
@@ -120,9 +120,19 @@ public func showInfo(title title: String?, message: String?, buttonTitle: String
 
 * Xcode 7.3
 
-  ​
+
+
+
+## TO DO
+
+- [x] [Cocoapods](Documentation/CocoaPods.md)
+- [x] [Carthage]((https://github.com/Carthage/Carthage#supporting-carthage-for-your-framework))
+- [ ] Swift Package Manager
+
+
 
 
 ## License
 
 Released under the MIT license. See LICENSE for details.
+
