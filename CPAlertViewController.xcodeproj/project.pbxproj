@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3553DF9E1C8EFC7D00BCB077 /* CPAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553DF9C1C8EFC7D00BCB077 /* CPAlertViewController.swift */; };
-		3553DF9F1C8EFC7D00BCB077 /* HelpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553DF9D1C8EFC7D00BCB077 /* HelpClass.swift */; };
+		358619051CDEC8CA0023B754 /* CPAlertViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358618FE1CDEC8CA0023B754 /* CPAlertViewController.framework */; };
+		358619061CDEC8CA0023B754 /* CPAlertViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 358618FE1CDEC8CA0023B754 /* CPAlertViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3586190B1CDEC8EF0023B754 /* CPAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553DF9C1C8EFC7D00BCB077 /* CPAlertViewController.swift */; };
+		3586190C1CDEC8EF0023B754 /* HelpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553DF9D1C8EFC7D00BCB077 /* HelpClass.swift */; };
+		358619141CDECA8E0023B754 /* CPAlertViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3586190F1CDEC9C00023B754 /* CPAlertViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		950011241C1907E800E0126C /* CPCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950011231C1907E800E0126C /* CPCollectionViewCell.swift */; };
 		95FA1DE21C1669D600FFCD05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA1DE11C1669D600FFCD05 /* AppDelegate.swift */; };
 		95FA1DE41C1669D600FFCD05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA1DE31C1669D600FFCD05 /* ViewController.swift */; };
@@ -17,11 +20,38 @@
 		95FA1DEC1C1669D700FFCD05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FA1DEA1C1669D700FFCD05 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		358619031CDEC8CA0023B754 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95FA1DD61C1669D500FFCD05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 358618FD1CDEC8CA0023B754;
+			remoteInfo = CPAlertViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3586190A1CDEC8CA0023B754 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				358619061CDEC8CA0023B754 /* CPAlertViewController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3553DF9C1C8EFC7D00BCB077 /* CPAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPAlertViewController.swift; sourceTree = "<group>"; };
 		3553DF9D1C8EFC7D00BCB077 /* HelpClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpClass.swift; sourceTree = "<group>"; };
+		358618FE1CDEC8CA0023B754 /* CPAlertViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CPAlertViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3586190E1CDEC9C00023B754 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Classes/Info.plist; sourceTree = SOURCE_ROOT; };
+		3586190F1CDEC9C00023B754 /* CPAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPAlertViewController.h; path = Classes/CPAlertViewController.h; sourceTree = SOURCE_ROOT; };
 		950011231C1907E800E0126C /* CPCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPCollectionViewCell.swift; sourceTree = "<group>"; };
-		95FA1DDE1C1669D500FFCD05 /* CPAlertViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPAlertViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95FA1DDE1C1669D500FFCD05 /* CPAlertViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPAlertViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FA1DE11C1669D600FFCD05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95FA1DE31C1669D600FFCD05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		95FA1DE61C1669D600FFCD05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,10 +61,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		358618FA1CDEC8CA0023B754 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95FA1DDB1C1669D500FFCD05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358619051CDEC8CA0023B754 /* CPAlertViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,14 +85,25 @@
 				3553DF9C1C8EFC7D00BCB077 /* CPAlertViewController.swift */,
 				3553DF9D1C8EFC7D00BCB077 /* HelpClass.swift */,
 			);
-			path = Classes;
+			name = Classes;
+			path = ../Classes;
+			sourceTree = "<group>";
+		};
+		358618FF1CDEC8CA0023B754 /* CPAlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3586190E1CDEC9C00023B754 /* Info.plist */,
+				3586190F1CDEC9C00023B754 /* CPAlertViewController.h */,
+				3553DF9B1C8EFC7D00BCB077 /* Classes */,
+			);
+			path = CPAlertViewController;
 			sourceTree = "<group>";
 		};
 		95FA1DD51C1669D400FFCD05 = {
 			isa = PBXGroup;
 			children = (
-				3553DF9B1C8EFC7D00BCB077 /* Classes */,
 				95FA1DE01C1669D500FFCD05 /* CPAlertViewController */,
+				358618FF1CDEC8CA0023B754 /* CPAlertViewController */,
 				95FA1DDF1C1669D500FFCD05 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,7 +111,8 @@
 		95FA1DDF1C1669D500FFCD05 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95FA1DDE1C1669D500FFCD05 /* CPAlertViewController.app */,
+				95FA1DDE1C1669D500FFCD05 /* CPAlertViewControllerDemo.app */,
+				358618FE1CDEC8CA0023B754 /* CPAlertViewController.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,14 +133,26 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		358618FB1CDEC8CA0023B754 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				358619141CDECA8E0023B754 /* CPAlertViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		95FA1DDD1C1669D500FFCD05 /* CPAlertViewController */ = {
+		358618FD1CDEC8CA0023B754 /* CPAlertViewController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95FA1DF01C1669D700FFCD05 /* Build configuration list for PBXNativeTarget "CPAlertViewController" */;
+			buildConfigurationList = 358619071CDEC8CA0023B754 /* Build configuration list for PBXNativeTarget "CPAlertViewController" */;
 			buildPhases = (
-				95FA1DDA1C1669D500FFCD05 /* Sources */,
-				95FA1DDB1C1669D500FFCD05 /* Frameworks */,
-				95FA1DDC1C1669D500FFCD05 /* Resources */,
+				358618F91CDEC8CA0023B754 /* Sources */,
+				358618FA1CDEC8CA0023B754 /* Frameworks */,
+				358618FB1CDEC8CA0023B754 /* Headers */,
+				358618FC1CDEC8CA0023B754 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -98,7 +160,26 @@
 			);
 			name = CPAlertViewController;
 			productName = CPAlertViewController;
-			productReference = 95FA1DDE1C1669D500FFCD05 /* CPAlertViewController.app */;
+			productReference = 358618FE1CDEC8CA0023B754 /* CPAlertViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		95FA1DDD1C1669D500FFCD05 /* CPAlertViewControllerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95FA1DF01C1669D700FFCD05 /* Build configuration list for PBXNativeTarget "CPAlertViewControllerDemo" */;
+			buildPhases = (
+				95FA1DDA1C1669D500FFCD05 /* Sources */,
+				95FA1DDB1C1669D500FFCD05 /* Frameworks */,
+				95FA1DDC1C1669D500FFCD05 /* Resources */,
+				3586190A1CDEC8CA0023B754 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				358619041CDEC8CA0023B754 /* PBXTargetDependency */,
+			);
+			name = CPAlertViewControllerDemo;
+			productName = CPAlertViewController;
+			productReference = 95FA1DDE1C1669D500FFCD05 /* CPAlertViewControllerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,6 +192,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = CP3HNU;
 				TargetAttributes = {
+					358618FD1CDEC8CA0023B754 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					95FA1DDD1C1669D500FFCD05 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
@@ -129,12 +213,20 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				95FA1DDD1C1669D500FFCD05 /* CPAlertViewController */,
+				95FA1DDD1C1669D500FFCD05 /* CPAlertViewControllerDemo */,
+				358618FD1CDEC8CA0023B754 /* CPAlertViewController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		358618FC1CDEC8CA0023B754 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95FA1DDC1C1669D500FFCD05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,12 +240,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		358618F91CDEC8CA0023B754 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3586190B1CDEC8EF0023B754 /* CPAlertViewController.swift in Sources */,
+				3586190C1CDEC8EF0023B754 /* HelpClass.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95FA1DDA1C1669D500FFCD05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3553DF9E1C8EFC7D00BCB077 /* CPAlertViewController.swift in Sources */,
-				3553DF9F1C8EFC7D00BCB077 /* HelpClass.swift in Sources */,
 				95FA1DE41C1669D600FFCD05 /* ViewController.swift in Sources */,
 				95FA1DE21C1669D600FFCD05 /* AppDelegate.swift in Sources */,
 				950011241C1907E800E0126C /* CPCollectionViewCell.swift in Sources */,
@@ -161,6 +260,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		358619041CDEC8CA0023B754 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 358618FD1CDEC8CA0023B754 /* CPAlertViewController */;
+			targetProxy = 358619031CDEC8CA0023B754 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		95FA1DE51C1669D600FFCD05 /* Main.storyboard */ = {
@@ -182,6 +289,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		358619081CDEC8CA0023B754 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Classes/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zte.CPAlertViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		358619091CDEC8CA0023B754 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Classes/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zte.CPAlertViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		95FA1DEE1C1669D700FFCD05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -267,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CPAlertViewController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -279,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CPAlertViewController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -290,6 +443,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		358619071CDEC8CA0023B754 /* Build configuration list for PBXNativeTarget "CPAlertViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				358619081CDEC8CA0023B754 /* Debug */,
+				358619091CDEC8CA0023B754 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		95FA1DD91C1669D500FFCD05 /* Build configuration list for PBXProject "CPAlertViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -299,7 +461,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95FA1DF01C1669D700FFCD05 /* Build configuration list for PBXNativeTarget "CPAlertViewController" */ = {
+		95FA1DF01C1669D700FFCD05 /* Build configuration list for PBXNativeTarget "CPAlertViewControllerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95FA1DF11C1669D700FFCD05 /* Debug */,

@@ -43,10 +43,10 @@ public class CPAlertViewController: UIViewController {
     public static var buttonFontSize: CGFloat = 16.0
     
     /// The text color of tittle
-    public static var titleColor = UIColor.colorFromRGB(0x333333)
+    public static var titleColor = UIColor(rgbValue: 0x333333)
     
     /// The text color of message
-    public static var messageColor = UIColor.colorFromRGB(0x555555)
+    public static var messageColor = UIColor(rgbValue: 0x555555)
     
     /// The text color of title of button
     public static var buttonTitleColor = UIColor.whiteColor()
@@ -108,7 +108,7 @@ public class CPAlertViewController: UIViewController {
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 0.5
         contentView.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
-        contentView.layer.borderColor = UIColor.colorFromRGB(0xCCCCCC).CGColor
+        contentView.layer.borderColor = UIColor(rgbValue: 0xCCCCCC).CGColor
         self.view.addSubview(contentView)
         
         //Constraints
@@ -180,7 +180,7 @@ public class CPAlertViewController: UIViewController {
         imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .Width, multiplier: 1.0, constant: imageWidth))
         imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: imageHeight))
         
-        imageView.backgroundColor = UIColor.colorFromRGB(style.backgroundColorInt)
+        imageView.backgroundColor = UIColor(rgbValue: style.backgroundColorInt)
         if case .CustomImage(_) = style {
             imageView.layer.cornerRadius = 0
         } else {
