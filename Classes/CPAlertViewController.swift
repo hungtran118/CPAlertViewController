@@ -9,18 +9,18 @@
 import UIKit
 
 public enum CPAlertStyle {
-    case Success, Error, Warning, Info, None
-    case CustomImage(imageName: String)
+    case success, error, warning, info, none
+    case customImage(imageName: String)
     
     var backgroundColorInt: UInt {
         switch self {
-        case Success:
+        case .success:
             return 0x10A110
-        case Error:
+        case .error:
             return 0xDC2121
-        case Warning:
+        case .warning:
             return 0xF8E71C
-        case Info:
+        case .info:
             return 0x4A90E2
         default:
             return 0xFFFFFF
@@ -28,68 +28,68 @@ public enum CPAlertStyle {
     }
 }
 
-public typealias UserAction = ((buttonIndex: Int) -> Void)
+public typealias UserAction = ((_ buttonIndex: Int) -> Void)
 
-public class CPAlertViewController: UIViewController {
+open class CPAlertViewController: UIViewController {
     
     //MARK: - Custom Properties
     /// The font size of tittle
-    public static var titleFontSize: CGFloat = 22.0
+    open static var titleFontSize: CGFloat = 22.0
     
     /// The font size of message
-    public static var messageFontSize: CGFloat = 16.0
+    open static var messageFontSize: CGFloat = 16.0
     
     /// The font size of title of button
-    public static var buttonFontSize: CGFloat = 16.0
+    open static var buttonFontSize: CGFloat = 16.0
     
     /// The text color of tittle
-    public static var titleColor = UIColor(rgbValue: 0x333333)
+    open static var titleColor = UIColor(rgbValue: 0x333333)
     
     /// The text color of message
-    public static var messageColor = UIColor(rgbValue: 0x555555)
+    open static var messageColor = UIColor(rgbValue: 0x555555)
     
     /// The text color of title of button
-    public static var buttonTitleColor = UIColor.whiteColor()
+    open static var buttonTitleColor = UIColor.white
     
     /// The normal background color of button
-    public static var buttonBGNormalColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+    open static var buttonBGNormalColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
     
     /// The highlighted background color of button
-    public static var buttonBGHighlightedColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 0.7)
+    open static var buttonBGHighlightedColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 0.7)
     
     //MARK: - Const
-    private let kBGTransparency: CGFloat = 0.5
-    private let kVerticalGap: CGFloat = 15.0
-    private let kWidthMargin: CGFloat = 15.0
-    private let kHeightMargin: CGFloat = 15.0
-    private let kContentWidth: CGFloat = 270.0
-    private let kContentHeightMargin: CGFloat = 20.0
-    private let kButtonHeight: CGFloat = 35.0
-    private let kTitleLines: Int = 3
-    private let kImageViewWidth: CGFloat = 30.0
-    private let kButtonBaseTag: Int = 100
-    private let kButtonHoriSpace: CGFloat = 20.0
-    private var imageViewSpace: CGFloat = 0.0
-    private var titleLabelSpace: CGFloat = 0.0
-    private var messageTextViewSpace: CGFloat = 0.0
+    fileprivate let kBGTransparency: CGFloat = 0.5
+    fileprivate let kVerticalGap: CGFloat = 15.0
+    fileprivate let kWidthMargin: CGFloat = 15.0
+    fileprivate let kHeightMargin: CGFloat = 15.0
+    fileprivate let kContentWidth: CGFloat = 270.0
+    fileprivate let kContentHeightMargin: CGFloat = 20.0
+    fileprivate let kButtonHeight: CGFloat = 35.0
+    fileprivate let kTitleLines: Int = 3
+    fileprivate let kImageViewWidth: CGFloat = 30.0
+    fileprivate let kButtonBaseTag: Int = 100
+    fileprivate let kButtonHoriSpace: CGFloat = 20.0
+    fileprivate var imageViewSpace: CGFloat = 0.0
+    fileprivate var titleLabelSpace: CGFloat = 0.0
+    fileprivate var messageTextViewSpace: CGFloat = 0.0
     
     
     //MARK: - View
-    private var strongSelf: CPAlertViewController?
-    private var contentView = UIView()
-    private var imageView = UIImageView()
-    private var titleLabel: UILabel = UILabel()
-    private var messageTextView = CPAdaptiveTextView()
-    private var buttons: [UIButton] = []
-    private var userAction: UserAction? = nil
+    fileprivate var strongSelf: CPAlertViewController?
+    fileprivate var contentView = UIView()
+    fileprivate var imageView = UIImageView()
+    fileprivate var titleLabel: UILabel = UILabel()
+    fileprivate var messageTextView = CPAdaptiveTextView()
+    fileprivate var buttons: [UIButton] = []
+    fileprivate var userAction: UserAction? = nil
     
     //MARK: - Init
     public init() {
         
         super.init(nibName: nil, bundle: nil)
         
-        self.view.frame = UIScreen.mainScreen().bounds
-        self.view.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
+        self.view.frame = UIScreen.main.bounds
+        self.view.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
         self.view.backgroundColor = UIColor(white: 0.0, alpha: kBGTransparency)
         
         strongSelf = self
@@ -100,7 +100,7 @@ public class CPAlertViewController: UIViewController {
     }
     
     //MARK: - Private
-    private func setupContentView() {
+    fileprivate func setupContentView() {
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
@@ -108,57 +108,57 @@ public class CPAlertViewController: UIViewController {
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 0.5
         contentView.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
-        contentView.layer.borderColor = UIColor(rgbValue: 0xCCCCCC).CGColor
+        contentView.layer.borderColor = UIColor(rgbValue: 0xCCCCCC).cgColor
         self.view.addSubview(contentView)
         
         //Constraints
-        let heightConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[contentView]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kContentHeightMargin], views: ["contentView": contentView])
+        let heightConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[contentView]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kContentHeightMargin], views: ["contentView": contentView])
         for constraint in heightConstraints {
             constraint.priority = UILayoutPriorityDefaultHigh
         }
         self.view.addConstraints(heightConstraints)
-        contentView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .Width, multiplier: 1.0, constant: kContentWidth))
-        self.view.addConstraint(NSLayoutConstraint(item: contentView, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
+        contentView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: kContentWidth))
+        self.view.addConstraint(NSLayoutConstraint(item: contentView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
         
-        self.view.addConstraint(NSLayoutConstraint(item: contentView, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
+        self.view.addConstraint(NSLayoutConstraint(item: contentView, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1.0, constant: 0.0))
     }
     
-    private func addContentSubviewConstraints() {
+    fileprivate func addContentSubviewConstraints() {
         
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[label]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["label": titleLabel]))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[textView]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["textView": messageTextView]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[label]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["label": titleLabel]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[textView]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["textView": messageTextView]))
         
         let lastButton = buttons.last!
         
         if buttons.count == 1 {
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[button]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["button": lastButton]))
+            contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[button]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["button": lastButton]))
         } else {
             let firstButton = buttons.first!
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[firstButton]-space-[lastButton(==firstButton)]-margin-|", options: NSLayoutFormatOptions.AlignAllCenterY, metrics: ["margin": kWidthMargin, "space": kButtonHoriSpace], views: ["firstButton": firstButton, "lastButton": lastButton]))
+            contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[firstButton]-space-[lastButton(==firstButton)]-margin-|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: ["margin": kWidthMargin, "space": kButtonHoriSpace], views: ["firstButton": firstButton, "lastButton": lastButton]))
         }
         
-        contentView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .CenterX, relatedBy: .Equal, toItem: contentView, attribute: .CenterX, multiplier: 1.0, constant: 0))
+        contentView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1.0, constant: 0))
         
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[imageView]-imageSpace-[label]-labelSpace-[textView]-textViewSpace-[button]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kHeightMargin, "imageSpace": imageViewSpace, "labelSpace": titleLabelSpace, "textViewSpace": messageTextViewSpace], views: ["label": titleLabel, "textView": messageTextView, "button": lastButton, "imageView": imageView]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[imageView]-imageSpace-[label]-labelSpace-[textView]-textViewSpace-[button]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kHeightMargin, "imageSpace": imageViewSpace, "labelSpace": titleLabelSpace, "textViewSpace": messageTextViewSpace], views: ["label": titleLabel, "textView": messageTextView, "button": lastButton, "imageView": imageView]))
         
-        titleLabel.setContentHuggingPriority(UILayoutPriorityRequired, forAxis: .Vertical)
-        messageTextView.setContentHuggingPriority(UILayoutPriorityRequired, forAxis: .Vertical)
+        titleLabel.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        messageTextView.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
     }
     
-    private func setupImageView(style: CPAlertStyle) {
+    fileprivate func setupImageView(_ style: CPAlertStyle) {
         
         var imageOption: UIImage? = nil
         
         switch style {
-        case .Success:
+        case .success:
             imageOption = CPAlertViewStyleKit.imageOfCheckmark
-        case .Error:
+        case .error:
             imageOption = CPAlertViewStyleKit.imageOfCross
-        case .Warning:
+        case .warning:
             imageOption = CPAlertViewStyleKit.imageOfWarning
-        case .Info:
+        case .info:
             imageOption = CPAlertViewStyleKit.imageOfInfo
-        case let .CustomImage(imageName):
+        case let .customImage(imageName):
             imageOption = UIImage(named: imageName)
         default:
             break
@@ -177,45 +177,45 @@ public class CPAlertViewController: UIViewController {
         contentView.addSubview(imageView)
         
         //Width and height constraints
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .Width, multiplier: 1.0, constant: imageWidth))
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: imageHeight))
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: imageWidth))
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: imageHeight))
         
         imageView.backgroundColor = UIColor(rgbValue: style.backgroundColorInt)
-        if case .CustomImage(_) = style {
+        if case .customImage(_) = style {
             imageView.layer.cornerRadius = 0
         } else {
             imageView.layer.cornerRadius = kImageViewWidth/2
         }
     }
     
-    private func setupTitleLabel(title: String?) {
+    fileprivate func setupTitleLabel(_ title: String?) {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = kTitleLines
-        titleLabel.textAlignment = .Center
+        titleLabel.textAlignment = .center
         titleLabel.text = title
-        titleLabel.font = UIFont.systemFontOfSize(CPAlertViewController.titleFontSize)
+        titleLabel.font = UIFont.systemFont(ofSize: CPAlertViewController.titleFontSize)
         titleLabel.textColor = CPAlertViewController.titleColor
-        titleLabel.backgroundColor = UIColor.clearColor()
+        titleLabel.backgroundColor = UIColor.clear
         contentView.addSubview(titleLabel)
         
-        if let aTitle = title where aTitle.isEmpty == false {
+        if let aTitle = title , aTitle.isEmpty == false {
             titleLabelSpace = kVerticalGap
         }
     }
     
-    private func setupMessageTextView(message: String?) {
+    fileprivate func setupMessageTextView(_ message: String?) {
         
         messageTextView.translatesAutoresizingMaskIntoConstraints = false
-        messageTextView.textAlignment = .Center
+        messageTextView.textAlignment = .center
         messageTextView.text = message ?? ""
-        messageTextView.font = UIFont.systemFontOfSize(CPAlertViewController.messageFontSize)
+        messageTextView.font = UIFont.systemFont(ofSize: CPAlertViewController.messageFontSize)
         messageTextView.textColor = CPAlertViewController.messageColor
-        messageTextView.editable = false
-        messageTextView.selectable = false
-        messageTextView.textContainerInset = UIEdgeInsetsZero
+        messageTextView.isEditable = false
+        messageTextView.isSelectable = false
+        messageTextView.textContainerInset = UIEdgeInsets.zero
         messageTextView.fixedWidth = kContentWidth - 2 * kWidthMargin
-        messageTextView.backgroundColor = UIColor.clearColor()
+        messageTextView.backgroundColor = UIColor.clear
         contentView.addSubview(messageTextView)
         
         if messageTextView.text.isEmpty == false {
@@ -223,9 +223,9 @@ public class CPAlertViewController: UIViewController {
         }
     }
     
-    private func setupButtons(buttonTitle buttonTitle: String, otherButtonTitle: String?) {
+    fileprivate func setupButtons(buttonTitle: String, otherButtonTitle: String?) {
         
-        if let buttonTitle2 = otherButtonTitle where buttonTitle2.isEmpty == false {
+        if let buttonTitle2 = otherButtonTitle , buttonTitle2.isEmpty == false {
             let button = createButton(buttonTitle2)
             contentView.addSubview(button)
             buttons.append(button)
@@ -237,40 +237,40 @@ public class CPAlertViewController: UIViewController {
         buttons.append(button)
     }
     
-    private func createButton(title: String) -> UIButton {
+    fileprivate func createButton(_ title: String) -> UIButton {
 
-        let button: UIButton = UIButton(type: UIButtonType.Custom)
+        let button: UIButton = UIButton(type: UIButtonType.custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tag = kButtonBaseTag + buttons.count
         button.layer.cornerRadius = 6.0
         button.layer.masksToBounds = true
-        button.setTitle(title, forState: .Normal)
-        button.titleLabel?.font = UIFont.systemFontOfSize(CPAlertViewController.buttonFontSize)
-        button.setTitleColor(CPAlertViewController.buttonTitleColor, forState: .Normal)
-        button.setBackgroundImage(CPAlertViewController.buttonBGNormalColor.image(), forState: .Normal)
-        button.setBackgroundImage(CPAlertViewController.buttonBGHighlightedColor.image(), forState: .Highlighted)
-        button.backgroundColor = UIColor.clearColor()
-        button.addTarget(self, action: #selector(CPAlertViewController.pressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.setTitle(title, for: UIControlState())
+        button.titleLabel?.font = UIFont.systemFont(ofSize: CPAlertViewController.buttonFontSize)
+        button.setTitleColor(CPAlertViewController.buttonTitleColor, for: UIControlState())
+        button.setBackgroundImage(CPAlertViewController.buttonBGNormalColor.image(), for: UIControlState())
+        button.setBackgroundImage(CPAlertViewController.buttonBGHighlightedColor.image(), for: .highlighted)
+        button.backgroundColor = UIColor.clear
+        button.addTarget(self, action: #selector(CPAlertViewController.pressed(_:)), for: UIControlEvents.touchUpInside)
         
         //Height constraints
-        button.addConstraint(NSLayoutConstraint(item: button, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: kButtonHeight))
+        button.addConstraint(NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: kButtonHeight))
         
         return button
     }
     
-    @objc private func pressed(sender: UIButton) {
+    @objc fileprivate func pressed(_ sender: UIButton) {
         
         let index = sender.tag - kButtonBaseTag
         close(clickedAtIndex:index)
     }
     
-    private func close(clickedAtIndex index: Int) {
+    fileprivate func close(clickedAtIndex index: Int) {
         
         if let action = userAction {
-            action(buttonIndex: index)
+            action(index)
         }
         
-        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
             self.view.alpha = 0.0
             }) { (Bool) -> Void in
                 
@@ -284,43 +284,43 @@ public class CPAlertViewController: UIViewController {
         }
     }
     
-    private func animateAlert() {
+    fileprivate func animateAlert() {
         
         view.alpha = 0
-        UIView.animateWithDuration(0.1, animations: { () -> Void in
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
             self.view.alpha = 1.0
         })
         
         let animation = CAKeyframeAnimation(keyPath: "transform")
-        animation.values = [NSValue(CATransform3D: CATransform3DMakeScale(0.9, 0.9, 0.0)), NSValue(CATransform3D: CATransform3DMakeScale(1.1, 1.1, 0.0)), NSValue(CATransform3D: CATransform3DMakeScale(0.9, 0.9, 0.0)), NSValue(CATransform3D: CATransform3DMakeScale(1.0, 1.0, 0.0))]
-        animation.keyTimes = [0, 2.0/4.0, 3.0/4.0, 1]
-        animation.additive = true
+        animation.values = [NSValue(caTransform3D: CATransform3DMakeScale(0.9, 0.9, 0.0)), NSValue(caTransform3D: CATransform3DMakeScale(1.1, 1.1, 0.0)), NSValue(caTransform3D: CATransform3DMakeScale(0.9, 0.9, 0.0)), NSValue(caTransform3D: CATransform3DMakeScale(1.0, 1.0, 0.0))]
+        animation.keyTimes = [0, 0.5, 0.75, 1]
+        animation.isAdditive = true
         animation.duration = 0.4
-        self.contentView.layer.addAnimation(animation, forKey: "animation")
+        self.contentView.layer.add(animation, forKey: "animation")
     }
     
     //MARK: - API
-    public func showSuccess(title title: String?, message: String?, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
-        show(title: title, message: message, style: .Success, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
+    open func showSuccess(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
+        show(title: title, message: message, style: .success, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
     }
     
-    public func showError(title title: String?, message: String?, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
-        show(title: title, message: message, style: .Error, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
+    open func showError(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
+        show(title: title, message: message, style: .error, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
     }
     
-    public func showWarning(title title: String?, message: String?, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
-        show(title: title, message: message, style: .Warning, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
+    open func showWarning(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
+        show(title: title, message: message, style: .warning, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
     }
     
-    public func showInfo(title title: String?, message: String?, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
-        show(title: title, message: message, style: .Info, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
+    open func showInfo(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
+        show(title: title, message: message, style: .info, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
     }
 
-    public func show(title title: String?, message: String?, style: CPAlertStyle = .None, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
+    open func show(title: String? = nil, message: String? = nil, style: CPAlertStyle = .none, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
         
-        let window: UIWindow = UIApplication.sharedApplication().keyWindow!
+        let window: UIWindow = UIApplication.shared.keyWindow!
         window.addSubview(view)
-        window.bringSubviewToFront(view)
+        window.bringSubview(toFront: view)
         view.frame = window.bounds
         
         self.userAction = action
@@ -351,10 +351,10 @@ private class CPAlertViewStyleKit : NSObject {
         let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         
         let linePath = UIBezierPath()
-        linePath.moveToPoint(CGPointMake(89.43, 43.76))
-        linePath.addLineToPoint(CGPointMake(52.23, 79.68))
-        linePath.addLineToPoint(CGPointMake(30.52, 57.42))
-        linePath.lineCapStyle = CGLineCap.Square
+        linePath.move(to: CGPoint(x: 89.43, y: 43.76))
+        linePath.addLine(to: CGPoint(x: 52.23, y: 79.68))
+        linePath.addLine(to: CGPoint(x: 30.52, y: 57.42))
+        linePath.lineCapStyle = CGLineCap.square
         linePath.usesEvenOddFillRule = true;
         linePath.lineWidth = 6
         lineColor.setStroke()
@@ -366,18 +366,18 @@ private class CPAlertViewStyleKit : NSObject {
         let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         
         let linePath = UIBezierPath()
-        linePath.moveToPoint(CGPointMake(36.9, 37.5))
-        linePath.addLineToPoint(CGPointMake(83.7, 84.3))
-        linePath.lineCapStyle = CGLineCap.Round
+        linePath.move(to: CGPoint(x: 36.9, y: 37.5))
+        linePath.addLine(to: CGPoint(x: 83.7, y: 84.3))
+        linePath.lineCapStyle = CGLineCap.round
         linePath.usesEvenOddFillRule = true
         linePath.lineWidth = 6
         lineColor.setStroke()
         linePath.stroke()
         
         let line2Path = UIBezierPath()
-        line2Path.moveToPoint(CGPointMake(83.7, 36.9))
-        line2Path.addLineToPoint(CGPointMake(36.9, 84.3))
-        line2Path.lineCapStyle = CGLineCap.Round
+        line2Path.move(to: CGPoint(x: 83.7, y: 36.9))
+        line2Path.addLine(to: CGPoint(x: 36.9, y: 84.3))
+        line2Path.lineCapStyle = CGLineCap.round
         line2Path.usesEvenOddFillRule = true
         line2Path.lineWidth = 6
         lineColor.setStroke()
@@ -389,15 +389,15 @@ private class CPAlertViewStyleKit : NSObject {
         let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         
         let linePath = UIBezierPath()
-        linePath.moveToPoint(CGPointMake(60, 66))
-        linePath.addLineToPoint(CGPointMake(60, 26))
-        linePath.lineCapStyle = CGLineCap.Round
+        linePath.move(to: CGPoint(x: 60, y: 66))
+        linePath.addLine(to: CGPoint(x: 60, y: 26))
+        linePath.lineCapStyle = CGLineCap.round
         linePath.usesEvenOddFillRule = true
         linePath.lineWidth = 8
         lineColor.setStroke()
         linePath.stroke()
         
-        let oval2Path = UIBezierPath(ovalInRect: CGRectMake(54, 88, 12, 12))
+        let oval2Path = UIBezierPath(ovalIn: CGRect(x: 54, y: 88, width: 12, height: 12))
         lineColor.setFill()
         oval2Path.fill()
     }
@@ -407,15 +407,15 @@ private class CPAlertViewStyleKit : NSObject {
         let lineColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         
         let linePath = UIBezierPath()
-        linePath.moveToPoint(CGPointMake(60, 54))
-        linePath.addLineToPoint(CGPointMake(60, 94))
-        linePath.lineCapStyle = CGLineCap.Round
+        linePath.move(to: CGPoint(x: 60, y: 54))
+        linePath.addLine(to: CGPoint(x: 60, y: 94))
+        linePath.lineCapStyle = CGLineCap.round
         linePath.usesEvenOddFillRule = true
         linePath.lineWidth = 8
         lineColor.setStroke()
         linePath.stroke()
        
-        let oval2Path = UIBezierPath(ovalInRect: CGRectMake(54, 20, 12, 12))
+        let oval2Path = UIBezierPath(ovalIn: CGRect(x: 54, y: 20, width: 12, height: 12))
         lineColor.setFill()
         oval2Path.fill()
     }
@@ -425,7 +425,7 @@ private class CPAlertViewStyleKit : NSObject {
         if (Cache.imageOfCheckmark != nil) {
             return Cache.imageOfCheckmark!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(120, 120), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 120, height: 120), false, 0)
         CPAlertViewStyleKit.drawCheckmark()
         Cache.imageOfCheckmark = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -436,7 +436,7 @@ private class CPAlertViewStyleKit : NSObject {
         if (Cache.imageOfCross != nil) {
             return Cache.imageOfCross!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(120, 120), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 120, height: 120), false, 0)
         CPAlertViewStyleKit.drawCross()
         Cache.imageOfCross = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -447,7 +447,7 @@ private class CPAlertViewStyleKit : NSObject {
         if (Cache.imageOfWarning != nil) {
             return Cache.imageOfWarning!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(120, 120), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 120, height: 120), false, 0)
         CPAlertViewStyleKit.drawWarning()
         Cache.imageOfWarning = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -458,7 +458,7 @@ private class CPAlertViewStyleKit : NSObject {
         if (Cache.imageOfInfo != nil) {
             return Cache.imageOfInfo!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(120, 120), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 120, height: 120), false, 0)
         CPAlertViewStyleKit.drawInfo()
         Cache.imageOfInfo = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

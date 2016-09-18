@@ -25,22 +25,22 @@ extension CGFloat {
     var swf: Float { return Float(self) }
 }
 
-public class CPAdaptiveTextView : UITextView {
+open class CPAdaptiveTextView : UITextView {
     
     var fixedWidth: CGFloat = 0.0
-    override public func intrinsicContentSize() -> CGSize {
+    override open var intrinsicContentSize : CGSize {
         
         if self.text == nil || self.text.isEmpty {
-            return CGSizeMake(fixedWidth, 0)
+            return CGSize(width: fixedWidth, height: 0)
         }
         
-        let text: NSString = self.text
-        let font = self.font ?? UIFont.systemFontOfSize(CPAlertViewController.messageFontSize)
+        let text: NSString = self.text as NSString
+        let font = self.font ?? UIFont.systemFont(ofSize: CPAlertViewController.messageFontSize)
         
-        let rect = text.boundingRectWithSize(CGSize(width: fixedWidth - 2 * self.textContainer.lineFragmentPadding, height: CGFloat.max), options: [.UsesFontLeading, .UsesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil)
+        let rect = text.boundingRect(with: CGSize(width: fixedWidth - 2 * self.textContainer.lineFragmentPadding, height: CGFloat.greatestFiniteMagnitude), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil)
         
         let vPadding = self.textContainerInset.top + self.textContainerInset.bottom
-        let size = CGSizeMake(ceilf(rect.size.width.swf).f, ceilf(rect.size.height.swf).f + vPadding)
+        let size = CGSize(width: ceilf(rect.size.width.swf).f, height: ceilf(rect.size.height.swf).f + vPadding)
         
         return size
     }
@@ -58,16 +58,16 @@ extension UIColor {
     
     func image() -> UIImage {
         
-        let rect = CGRectMake(0.0, 0.0, 1.0, 1.0)
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetFillColorWithColor(context, self.CGColor)
-        CGContextFillRect(context, rect)
+        context?.setFillColor(self.cgColor)
+        context?.fill(rect)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return image
+        return image!
     }
 }

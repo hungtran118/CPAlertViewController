@@ -15,22 +15,22 @@ class ViewController: UICollectionViewController {
         super.viewDidLoad()
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 13
     }
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    override func numberOfSections(in collectionView: UICollectionView) -> Int
     {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CPCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CPCollectionViewCell
     
         var title: String = "Title"
         var detail: String = "Detail"
-        switch indexPath.row {
+        switch (indexPath as NSIndexPath).row {
         case 0:
             title = "Success"
             detail = "Normal"
@@ -80,8 +80,8 @@ class ViewController: UICollectionViewController {
         return cell;
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        switch indexPath.row {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch (indexPath as NSIndexPath).row {
         case 0:
             show1()
         case 1:
@@ -135,11 +135,11 @@ class ViewController: UICollectionViewController {
     }
     
     func show5() {
-        CPAlertViewController().show(title: "Title", message: "Message", style: .None)
+        CPAlertViewController().show(title: "Title", message: "Message", style: .none)
     }
     
     func show6() {
-        CPAlertViewController().show(title: "Title", message: "Message", style: .CustomImage(imageName: "thumb"))
+        CPAlertViewController().show(title: "Title", message: "Message", style: .customImage(imageName: "thumb"))
     }
     
     func show7() {
@@ -183,7 +183,7 @@ class ViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     
     }
