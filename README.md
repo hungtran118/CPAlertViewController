@@ -116,9 +116,9 @@ public func showInfo(title title: String?, message: String?, buttonTitle: String
 
 ## Requirements
 
-* Swift 2.2
+* Swift 3.0+
 
-* Xcode 7.3
+* Xcode 8.0+
 
 
 
