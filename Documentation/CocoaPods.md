@@ -113,7 +113,7 @@ use_frameworks!
 pod 'CPAlertViewController'
 ```
 
-###Reference
+### Reference
 
 *   [CocoaPod](https://cocoapods.org/)
 *   [Creating Your First CocoaPod](http://code.tutsplus.com/tutorials/creating-your-first-cocoapod--cms-24332)
