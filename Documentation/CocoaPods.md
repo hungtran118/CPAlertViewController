@@ -1,8 +1,8 @@
-#CocoaPods
+# CocoaPods
 
-##Making a CocoaPod
+## Making a CocoaPod
 
-###Create Specs
+### Create Specs
 
 1.  创建Specs或者拷贝已有的Specs文件，修改名称
 
@@ -22,7 +22,7 @@
     $ pod lib lint
     ```
 
-###Test
+### Test
 
 1.  创建一个工程 or 使用[Make a CocoaPod](https://guides.cocoapods.org/making/making-a-cocoapod.html)创建一个Demo工程
 
@@ -51,7 +51,7 @@
 
     Storyboard/Xib: Go to Utilities->Identity inspector->Module
 
-###Release
+### Release
 
 1.  Tagging
 
@@ -102,7 +102,7 @@
         pushed (2.828579389 s)
     ```
 
-###Validation
+### Validation
 
 Create a project and Podfile
 
