@@ -114,7 +114,7 @@ open class CPAlertViewController: UIViewController {
         //Constraints
         let heightConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[contentView]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kContentHeightMargin], views: ["contentView": contentView])
         for constraint in heightConstraints {
-            constraint.priority = UILayoutPriorityDefaultHigh
+            constraint.priority = UILayoutPriority.defaultHigh
         }
         self.view.addConstraints(heightConstraints)
         contentView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: kContentWidth))
@@ -141,8 +141,8 @@ open class CPAlertViewController: UIViewController {
         
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[imageView]-imageSpace-[label]-labelSpace-[textView]-textViewSpace-[button]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kHeightMargin, "imageSpace": imageViewSpace, "labelSpace": titleLabelSpace, "textViewSpace": messageTextViewSpace], views: ["label": titleLabel, "textView": messageTextView, "button": lastButton, "imageView": imageView]))
         
-        titleLabel.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
-        messageTextView.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        titleLabel.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
+        messageTextView.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
     }
     
     fileprivate func setupImageView(_ style: CPAlertStyle) {
