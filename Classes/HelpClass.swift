@@ -25,10 +25,10 @@ extension CGFloat {
     var swf: Float { return Float(self) }
 }
 
-open class CPAdaptiveTextView : UITextView {
+public class CPAdaptiveTextView : UITextView {
     
     var fixedWidth: CGFloat = 0.0
-    override open var intrinsicContentSize : CGSize {
+    override public var intrinsicContentSize : CGSize {
         
         if self.text == nil || self.text.isEmpty {
             return CGSize(width: fixedWidth, height: 0)
@@ -37,7 +37,7 @@ open class CPAdaptiveTextView : UITextView {
         let text: NSString = self.text as NSString
         let font = self.font ?? UIFont.systemFont(ofSize: CPAlertViewController.messageFontSize)
         
-        let rect = text.boundingRect(with: CGSize(width: fixedWidth - 2 * self.textContainer.lineFragmentPadding, height: CGFloat.greatestFiniteMagnitude), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: [NSAttributedStringKey.font: font], context: nil)
+        let rect = text.boundingRect(with: CGSize(width: fixedWidth - 2 * self.textContainer.lineFragmentPadding, height: CGFloat.greatestFiniteMagnitude), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: font], context: nil)
         
         let vPadding = self.textContainerInset.top + self.textContainerInset.bottom
         let size = CGSize(width: ceilf(rect.size.width.swf).f, height: ceilf(rect.size.height.swf).f + vPadding)

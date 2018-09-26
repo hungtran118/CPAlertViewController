@@ -104,9 +104,9 @@ public func showInfo(title title: String?, message: String?, buttonTitle: String
 
 ## Requirements
 
-* Swift 4.0+
+* Swift 4.2
 
-* Xcode 9.0+
+* Xcode 10.0
 
   ​
 

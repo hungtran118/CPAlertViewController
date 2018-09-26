@@ -30,58 +30,58 @@ public enum CPAlertStyle {
 
 public typealias UserAction = ((_ buttonIndex: Int) -> Void)
 
-open class CPAlertViewController: UIViewController {
+public class CPAlertViewController: UIViewController {
     
     //MARK: - Custom Properties
     /// The font size of tittle
-    open static var titleFontSize: CGFloat = 22.0
+    public static var titleFontSize: CGFloat = 22.0
     
     /// The font size of message
-    open static var messageFontSize: CGFloat = 16.0
+    public static var messageFontSize: CGFloat = 16.0
     
     /// The font size of title of button
-    open static var buttonFontSize: CGFloat = 16.0
+    public static var buttonFontSize: CGFloat = 16.0
     
     /// The text color of tittle
-    open static var titleColor = UIColor(rgbValue: 0x333333)
+    public static var titleColor = UIColor(rgbValue: 0x333333)
     
     /// The text color of message
-    open static var messageColor = UIColor(rgbValue: 0x555555)
+    public static var messageColor = UIColor(rgbValue: 0x555555)
     
     /// The text color of title of button
-    open static var buttonTitleColor = UIColor.white
+    public static var buttonTitleColor = UIColor.white
     
     /// The normal background color of button
-    open static var buttonBGNormalColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+    public static var buttonBGNormalColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
     
     /// The highlighted background color of button
-    open static var buttonBGHighlightedColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 0.7)
+    public static var buttonBGHighlightedColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 0.7)
     
     //MARK: - Const
-    fileprivate let kBGTransparency: CGFloat = 0.5
-    fileprivate let kVerticalGap: CGFloat = 15.0
-    fileprivate let kWidthMargin: CGFloat = 15.0
-    fileprivate let kHeightMargin: CGFloat = 15.0
-    fileprivate let kContentWidth: CGFloat = 270.0
-    fileprivate let kContentHeightMargin: CGFloat = 20.0
-    fileprivate let kButtonHeight: CGFloat = 35.0
-    fileprivate let kTitleLines: Int = 3
-    fileprivate let kImageViewWidth: CGFloat = 30.0
-    fileprivate let kButtonBaseTag: Int = 100
-    fileprivate let kButtonHoriSpace: CGFloat = 20.0
-    fileprivate var imageViewSpace: CGFloat = 0.0
-    fileprivate var titleLabelSpace: CGFloat = 0.0
-    fileprivate var messageTextViewSpace: CGFloat = 0.0
+    private let kBGTransparency: CGFloat = 0.5
+    private let kVerticalGap: CGFloat = 15.0
+    private let kWidthMargin: CGFloat = 15.0
+    private let kHeightMargin: CGFloat = 15.0
+    private let kContentWidth: CGFloat = 270.0
+    private let kContentHeightMargin: CGFloat = 20.0
+    private let kButtonHeight: CGFloat = 35.0
+    private let kTitleLines: Int = 3
+    private let kImageViewWidth: CGFloat = 30.0
+    private let kButtonBaseTag: Int = 100
+    private let kButtonHoriSpace: CGFloat = 20.0
+    private var imageViewSpace: CGFloat = 0.0
+    private var titleLabelSpace: CGFloat = 0.0
+    private var messageTextViewSpace: CGFloat = 0.0
     
     
     //MARK: - View
-    fileprivate var strongSelf: CPAlertViewController?
-    fileprivate var contentView = UIView()
-    fileprivate var imageView = UIImageView()
-    fileprivate var titleLabel: UILabel = UILabel()
-    fileprivate var messageTextView = CPAdaptiveTextView()
-    fileprivate var buttons: [UIButton] = []
-    fileprivate var userAction: UserAction? = nil
+    private var strongSelf: CPAlertViewController?
+    private var contentView = UIView()
+    private var imageView = UIImageView()
+    private var titleLabel: UILabel = UILabel()
+    private var messageTextView = CPAdaptiveTextView()
+    private var buttons: [UIButton] = []
+    private var userAction: UserAction? = nil
     
     //MARK: - Init
     public init() {
@@ -89,7 +89,7 @@ open class CPAlertViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         self.view.frame = UIScreen.main.bounds
-        self.view.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
+        self.view.autoresizingMask = [UIView.AutoresizingMask.flexibleHeight, UIView.AutoresizingMask.flexibleWidth]
         self.view.backgroundColor = UIColor(white: 0.0, alpha: kBGTransparency)
         
         strongSelf = self
@@ -100,7 +100,7 @@ open class CPAlertViewController: UIViewController {
     }
     
     //MARK: - Private
-    fileprivate func setupContentView() {
+    private func setupContentView() {
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
@@ -112,7 +112,7 @@ open class CPAlertViewController: UIViewController {
         self.view.addSubview(contentView)
         
         //Constraints
-        let heightConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[contentView]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kContentHeightMargin], views: ["contentView": contentView])
+        let heightConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[contentView]-margin-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: ["margin": kContentHeightMargin], views: ["contentView": contentView])
         for constraint in heightConstraints {
             constraint.priority = UILayoutPriority.defaultHigh
         }
@@ -123,29 +123,29 @@ open class CPAlertViewController: UIViewController {
         self.view.addConstraint(NSLayoutConstraint(item: contentView, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1.0, constant: 0.0))
     }
     
-    fileprivate func addContentSubviewConstraints() {
+    private func addContentSubviewConstraints() {
         
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[label]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["label": titleLabel]))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[textView]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["textView": messageTextView]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[label]-margin-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["label": titleLabel]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[textView]-margin-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["textView": messageTextView]))
         
         let lastButton = buttons.last!
         
         if buttons.count == 1 {
-            contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[button]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["button": lastButton]))
+            contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[button]-margin-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: ["margin": kWidthMargin], views: ["button": lastButton]))
         } else {
             let firstButton = buttons.first!
-            contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[firstButton]-space-[lastButton(==firstButton)]-margin-|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: ["margin": kWidthMargin, "space": kButtonHoriSpace], views: ["firstButton": firstButton, "lastButton": lastButton]))
+            contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[firstButton]-space-[lastButton(==firstButton)]-margin-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterY, metrics: ["margin": kWidthMargin, "space": kButtonHoriSpace], views: ["firstButton": firstButton, "lastButton": lastButton]))
         }
         
         contentView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1.0, constant: 0))
         
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[imageView]-imageSpace-[label]-labelSpace-[textView]-textViewSpace-[button]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["margin": kHeightMargin, "imageSpace": imageViewSpace, "labelSpace": titleLabelSpace, "textViewSpace": messageTextViewSpace], views: ["label": titleLabel, "textView": messageTextView, "button": lastButton, "imageView": imageView]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[imageView]-imageSpace-[label]-labelSpace-[textView]-textViewSpace-[button]-margin-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: ["margin": kHeightMargin, "imageSpace": imageViewSpace, "labelSpace": titleLabelSpace, "textViewSpace": messageTextViewSpace], views: ["label": titleLabel, "textView": messageTextView, "button": lastButton, "imageView": imageView]))
         
         titleLabel.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
         messageTextView.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
     }
     
-    fileprivate func setupImageView(_ style: CPAlertStyle) {
+    private func setupImageView(_ style: CPAlertStyle) {
         
         var imageOption: UIImage? = nil
         
@@ -188,7 +188,7 @@ open class CPAlertViewController: UIViewController {
         }
     }
     
-    fileprivate func setupTitleLabel(_ title: String?) {
+    private func setupTitleLabel(_ title: String?) {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = kTitleLines
@@ -204,7 +204,7 @@ open class CPAlertViewController: UIViewController {
         }
     }
     
-    fileprivate func setupMessageTextView(_ message: String?) {
+    private func setupMessageTextView(_ message: String?) {
         
         messageTextView.translatesAutoresizingMaskIntoConstraints = false
         messageTextView.textAlignment = .center
@@ -223,7 +223,7 @@ open class CPAlertViewController: UIViewController {
         }
     }
     
-    fileprivate func setupButtons(buttonTitle: String, otherButtonTitle: String?) {
+    private func setupButtons(buttonTitle: String, otherButtonTitle: String?) {
         
         if let buttonTitle2 = otherButtonTitle , buttonTitle2.isEmpty == false {
             let button = createButton(buttonTitle2)
@@ -237,20 +237,20 @@ open class CPAlertViewController: UIViewController {
         buttons.append(button)
     }
     
-    fileprivate func createButton(_ title: String) -> UIButton {
+    private func createButton(_ title: String) -> UIButton {
 
-        let button: UIButton = UIButton(type: UIButtonType.custom)
+        let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tag = kButtonBaseTag + buttons.count
         button.layer.cornerRadius = 6.0
         button.layer.masksToBounds = true
-        button.setTitle(title, for: UIControlState())
+        button.setTitle(title, for: UIControl.State())
         button.titleLabel?.font = UIFont.systemFont(ofSize: CPAlertViewController.buttonFontSize)
-        button.setTitleColor(CPAlertViewController.buttonTitleColor, for: UIControlState())
-        button.setBackgroundImage(CPAlertViewController.buttonBGNormalColor.image(), for: UIControlState())
+        button.setTitleColor(CPAlertViewController.buttonTitleColor, for: UIControl.State())
+        button.setBackgroundImage(CPAlertViewController.buttonBGNormalColor.image(), for: UIControl.State())
         button.setBackgroundImage(CPAlertViewController.buttonBGHighlightedColor.image(), for: .highlighted)
         button.backgroundColor = UIColor.clear
-        button.addTarget(self, action: #selector(CPAlertViewController.pressed(_:)), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(CPAlertViewController.pressed(_:)), for: UIControl.Event.touchUpInside)
         
         //Height constraints
         button.addConstraint(NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: kButtonHeight))
@@ -258,19 +258,19 @@ open class CPAlertViewController: UIViewController {
         return button
     }
     
-    @objc fileprivate func pressed(_ sender: UIButton) {
+    @objc private func pressed(_ sender: UIButton) {
         
         let index = sender.tag - kButtonBaseTag
         close(clickedAtIndex:index)
     }
     
-    fileprivate func close(clickedAtIndex index: Int) {
+    private func close(clickedAtIndex index: Int) {
         
         if let action = userAction {
             action(index)
         }
         
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: { () -> Void in
             self.view.alpha = 0.0
             }) { (Bool) -> Void in
                 
@@ -284,7 +284,7 @@ open class CPAlertViewController: UIViewController {
         }
     }
     
-    fileprivate func animateAlert() {
+    private func animateAlert() {
         
         view.alpha = 0
         UIView.animate(withDuration: 0.1, animations: { () -> Void in
@@ -300,27 +300,27 @@ open class CPAlertViewController: UIViewController {
     }
     
     //MARK: - API
-    open func showSuccess(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
+    public func showSuccess(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
         show(title: title, message: message, style: .success, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
     }
     
-    open func showError(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
+    public func showError(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
         show(title: title, message: message, style: .error, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
     }
     
-    open func showWarning(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
+    public func showWarning(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
         show(title: title, message: message, style: .warning, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
     }
     
-    open func showInfo(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
+    public func showInfo(title: String? = nil, message: String? = nil, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
         show(title: title, message: message, style: .info, buttonTitle: buttonTitle, otherButtonTitle: otherButtonTitle, action: action)
     }
 
-    open func show(title: String? = nil, message: String? = nil, style: CPAlertStyle = .none, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
+    public func show(title: String? = nil, message: String? = nil, style: CPAlertStyle = .none, buttonTitle: String = "OK", otherButtonTitle: String? = nil, action: UserAction? = nil) {
         
         let window: UIWindow = UIApplication.shared.keyWindow!
         window.addSubview(view)
-        window.bringSubview(toFront: view)
+        window.bringSubviewToFront(view)
         view.frame = window.bounds
         
         self.userAction = action
